@@ -12,26 +12,29 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 # подключаем модуль для работы с перемеными окружения
-import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # связывам наш проект с перемеными виртуального окружения , которые лежать в файле .env
 env = environ.Env()
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, "my_project/.env"))
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
 # SECRET_KEY = "django-insecure-it2atvs^1@giws4bho)70f!k3f8svdzk%n64%iob1na9!&7#g9"
 
 # берем значения по ключу SECRET_KEY из файла .env
+# также можна брать значения по ключу через
+# os.environ.get("SECRET_KEY")
 SECRET_KEY = env("SECRET_KEY")
 print(SECRET_KEY)
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
