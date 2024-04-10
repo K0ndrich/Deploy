@@ -87,9 +87,26 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }
+    #
+    #
+    # Подлючение к базе данных postgreSql
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        # указываем движок на котором будер работать подключеная база данных
+        "ENGINE": "django.db.backends.postgresql",
+        # название покдлючаемой базы данных
+        "NAME": "my_test_db",
+        # имя пользователя, который будет покдлючаться к базе
+        "USER": "kondrich",
+        # пароль для подключения к базе
+        "PASSWORD": "1234",
+        # указываем ip-адресс (хост) для нашей базы
+        "HOST": "localhost",
+        # указываем порт для нашей базы
+        "PORT": "5432",
     }
 }
 
