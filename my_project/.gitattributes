@@ -1,0 +1,5 @@
+# Чтоб проект отображался как написаный на python , а не на Java Script
+
+*.js linguist-language=Python
+static/* linguist-vendored
+jquery.js linguist-vendored=false
