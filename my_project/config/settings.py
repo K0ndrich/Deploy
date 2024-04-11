@@ -93,7 +93,7 @@ DATABASES = {
     # }
     #
     #
-    # Подлючение к базе данных postgreSql
+    # Подлючение к базе данных postgreSQL
     "default": {
         # указываем движок на котором будер работать подключеная база данных
         "ENGINE": "django.db.backends.postgresql",
