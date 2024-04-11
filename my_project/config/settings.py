@@ -151,3 +151,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# базовый путь к каталогу статики проекта
+STATIC_URL = 'static/'
+
+# Абсолютный путь к каталогу статики, в котором с помощью python manage.py collectstatic
+# будут собираться статические файлы.
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
