@@ -159,8 +159,15 @@ STATIC_URL = "static/"
 # будут собираться статические файлы.
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
+# нестандарные пути для файлов статики
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
 # базовый путь к каталогу с медиа файлами нашего проекта
 MEDIA_URL = "media/"
 
 # Абсолютный путь к каталогу с медиа файлами нашего проекта
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
+
+# Указывам модель, которая будет хранить аккаунты пользователей
+# по-умолчанию AUTH_USER_MODEL = "auth.User"
+AUTH_USER_MODEL = "my_app.MyNewModel"
