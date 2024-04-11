@@ -30,6 +30,11 @@ ADD .env.docker ./my_folder/.env
 # ENV позволяет создавать в Dockerfile новые переменные окружения для текущего docker контейнера
 ENV APP_NAME = MY_PROJECT
 
+# запрещаем создавать файли с кешем внутри докер образа
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# сообщения и ошибки о работе контейнера не будут попадать в буфер
+ENV PYTHONUNBUFFERED 1
 
 # CMD запускает команды каждый раз при запуске в docker контейнере
 CMD gunicorn config.wsgi:application -b 0.0.0.0:8000
