@@ -13,7 +13,7 @@ RUN mkdir my_folder
 WORKDIR my_folder
 
 # переносим файл с зависимостями в docker образ
-ADD requirements.txt /my_folder/
+ADD requirements.txt ./
 
 # устанавливаем зависимости для нашего проекта внутри docker образа 
 RUN pip install -r requirements.txt
@@ -21,11 +21,11 @@ RUN pip install -r requirements.txt
 
 # ADD или COPY перемещаем все файлы нашего проекта в docker образ
 # из локального проекта в  ---  docker образ
-ADD . /my_folder/ 
+ADD . ./my_project
 
 # Заменяет файл с локальными переменным окружения на файл с перемеными окружения docker 
 # .env удаляеться и на его место ставиться .env.docker
-ADD .env.docker ./my_folder/.env
+ADD .env.docker ./my_project/.env
 
 # ENV позволяет создавать в Dockerfile новые переменные окружения для текущего docker контейнера
 ENV APP_NAME = MY_PROJECT
@@ -37,4 +37,4 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # CMD запускает команды каждый раз при запуске в docker контейнере
-CMD gunicorn config.wsgi:application -b 0.0.0.0:8000
+# CMD gunicorn config.wsgi:application -b 0.0.0.0:8000
