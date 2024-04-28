@@ -101,13 +101,13 @@ DATABASES = {
     "default": {
         # указываем движок на котором будер работать подключеная база данных
         # нужно установить pip install psycopg2 (если linux -> pip install psycopg2-binary)
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         # название покдлючаемой базы данных
-        "NAME": "test_db",
+        "NAME": "my_database",
         # имя пользователя, который будет покдлючаться к базе
         "USER": "postgres",
         # пароль для подключения к базе
-        "PASSWORD": "1234",
+        "PASSWORD": "1856",
         # указываем ip-адресс (хост) для нашей базы
         "HOST": "localhost",
         # указываем порт для нашей базы
