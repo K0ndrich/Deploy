@@ -1,4 +1,3 @@
-# В етом файле храняться модули, которые нужно установить для работы нашего проекта
 asgiref==3.8.1
 asttokens==2.4.1
 colorama==0.4.6
@@ -7,15 +6,20 @@ Django==5.0.4
 django-debug-toolbar==4.3.0
 django-environ==0.11.2
 django-extensions==3.2.3
+django-filter==24.2
+djangorestframework==3.15.1
 executing==2.0.1
 gunicorn==21.2.0
 ipython==8.22.2
 jedi==0.19.1
+Markdown==3.6
 matplotlib-inline==0.1.6
 packaging==24.0
 parso==0.8.3
 pillow==10.2.0
 prompt-toolkit==3.0.43
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pure-eval==0.2.2
 Pygments==2.17.2
 pytz==2024.1

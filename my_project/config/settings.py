@@ -38,7 +38,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 
-ALLOWED_HOSTS = ["198.211.99.20", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # подключение django REST
+    "rest_framework",
+    # подключение своего приложения
+    "my_app.apps.MyAppConfig",
 ]
 
 MIDDLEWARE = [
@@ -96,11 +100,12 @@ DATABASES = {
     # Подлючение к базе данных postgreSQL
     "default": {
         # указываем движок на котором будер работать подключеная база данных
+        # нужно установить pip install psycopg2 (если linux -> pip install psycopg2-binary)
         "ENGINE": "django.db.backends.postgresql",
         # название покдлючаемой базы данных
-        "NAME": "my_test_db",
+        "NAME": "test_db",
         # имя пользователя, который будет покдлючаться к базе
-        "USER": "kondrich",
+        "USER": "postgres",
         # пароль для подключения к базе
         "PASSWORD": "1234",
         # указываем ip-адресс (хост) для нашей базы
@@ -152,7 +157,7 @@ STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 # нестандарные пути для файлов статики
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+# STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # базовый путь к каталогу с медиа файлами нашего проекта
 MEDIA_URL = "media/"
@@ -162,4 +167,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
 # Указывам модель, которая будет хранить аккаунты пользователей
 # по-умолчанию AUTH_USER_MODEL = "auth.User"
-AUTH_USER_MODEL = "my_app.MyNewModel"
+# AUTH_USER_MODEL = "auth.User"
