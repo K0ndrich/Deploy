@@ -3,7 +3,7 @@
 # ↓
 
 # берем другой docker образ, который будет основой нашего docker образа
-FROM python:3.11-slim
+FROM python:3
 
 # RUN запускает команды только при создании docker образа
 # mkdir my_folder создаеться папка в нашем контейнере, где будет лежать наш проект
@@ -13,10 +13,10 @@ RUN mkdir my_folder
 WORKDIR my_folder
 
 # переносим файл с зависимостями в docker образ
-ADD requirements.txt ./
+COPY req.txt ./
 
 # устанавливаем зависимости для нашего проекта внутри docker образа 
-RUN pip install -r requirements.txt
+RUN pip install -r ./req.txt
 
 
 # ADD или COPY перемещаем все файлы нашего проекта в docker образ
