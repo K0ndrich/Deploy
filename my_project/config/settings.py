@@ -91,27 +91,28 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # Подлючение к базе данных PostgreSQL
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        # указываем движок на котором будер работать подключеная база данных
+        # нужно установить pip install psycopg2 (если linux -> pip install psycopg2-binary)
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        # название покдлючаемой базы данных
+        "NAME": "my_test",
+        # имя пользователя, который будет покдлючаться к базе
+        "USER": "postgres",
+        # пароль для подключения к базе
+        "PASSWORD": "1856",
+        # указываем ip-адресс (хост) для нашей базы
+        "HOST": "localhost",
+        # указываем порт для нашей базы
+        "PORT": "5432",
     }
-    
-    
-    # Подлючение к базе данных postgreSQL
+    #
+    #
+    # Подключение SQLite базы по умолчанию
     # "default": {
-    #     # указываем движок на котором будер работать подключеная база данных
-    #     # нужно установить pip install psycopg2 (если linux -> pip install psycopg2-binary)
-    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #     # название покдлючаемой базы данных
-    #     "NAME": "my_test",
-    #     # имя пользователя, который будет покдлючаться к базе
-    #     "USER": "postgres",
-    #     # пароль для подключения к базе
-    #     "PASSWORD": "1856",
-    #     # указываем ip-адресс (хост) для нашей базы
-    #     "HOST": "localhost",
-    #     # указываем порт для нашей базы
-    #     "PORT": "5432",
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
     # }
 }
 
